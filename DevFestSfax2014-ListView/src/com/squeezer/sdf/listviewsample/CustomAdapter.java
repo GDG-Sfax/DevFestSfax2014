@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class CustomAdapter extends BaseAdapter {
 
     private ArrayList<ListItemWrapper> mObjectsList = new ArrayList<ListItemWrapper>();
-    LayoutInflater mInflater;
+    private LayoutInflater mInflater;
 
     public CustomAdapter(Context context, ArrayList<ListItemWrapper> itemsList) {
 
@@ -50,7 +50,7 @@ public class CustomAdapter extends BaseAdapter {
                     false);
 
             itemViewHolder = new ItemViewHolder();
-            itemViewHolder.mItemLabel = (TextView) convertView
+            itemViewHolder.mItemTitle = (TextView) convertView
                     .findViewById(R.id.title);
             itemViewHolder.mItemInfo = (TextView) convertView
                     .findViewById(R.id.info);
@@ -61,7 +61,7 @@ public class CustomAdapter extends BaseAdapter {
             itemViewHolder = (ItemViewHolder) convertView.getTag();
         }
 
-        itemViewHolder.mItemLabel
+        itemViewHolder.mItemTitle
                 .setText(mObjectsList.get(position).getTitle());
         itemViewHolder.mItemInfo.setText(mObjectsList.get(position).getInfo());
         itemViewHolder.mItemIcon.setImageResource(mObjectsList.get(position)
@@ -72,7 +72,7 @@ public class CustomAdapter extends BaseAdapter {
 
     private static class ItemViewHolder {
 
-        TextView mItemLabel;
+        TextView mItemTitle;
         TextView mItemInfo;
         ImageView mItemIcon;
 
